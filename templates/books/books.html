@@ -1,21 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Books</title>
-</head>
-<body>
-    <center>
-        <h1>Books</h1>
-            {% for i in render_book %}
-                <li>
-                    <h2>{{ i.title }}</h2>
-                    <p><em>{{ i.description }}</em></p>
-                    <p><em>${{ i.cost }}</em></p>
-                    <img src="{{ i.image.url }}" alt="{{ i.title }} "style="width: 400px">
-                    <p><strong>{{ i.created_at }}</strong></p>
-                </li>
+{% include 'books/header.html' %}
+
+    <main>
+        <h1 class="title_main">Books & Games</h1>
+        <section class="books">
+
+            {% for i in books %}
+            <div class="book">
+                <div class="book_image">
+                <img src="{{ i.image.url }}" alt="{{ i.title }}">
+                </div>
+                <div class="book_info">
+                    <h3>{{ i.title }}</h3>
+                    <p>{{ i.description }}</p>
+                    <a href="/lang_detail/{{ i.id }}">
+                        <button class="detail_btn">
+                            Подробнее
+                        </button>
+                    </a>
+                </div>
+            </div>
             {% endfor %}
-    </center>
-</body>
-</html>
+        </section>
+    </main>
