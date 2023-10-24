@@ -3,7 +3,6 @@
     <main>
         <h1 class="title_main">Books & Games</h1>
         <section class="books">
-
             {% for i in books %}
             <div class="book">
                 <div class="book_image">
@@ -12,9 +11,9 @@
                 <div class="book_info">
                     <h3>{{ i.title }}</h3>
                     <p>{{ i.description }}</p>
-                    <a href="/lang_detail/{{ i.id }}">
+                    <a href="/book_detail/{{ i.id }}">
                         <button class="detail_btn">
-                            Подробнее
+                            More
                         </button>
                     </a>
                 </div>
