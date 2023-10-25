@@ -22,7 +22,7 @@ def create_book (request):
         form = forms.BookForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return HttpResponse('Added')
+            return HttpResponse('<a href="/">Back</a>')
     else:
         form = forms.BookForm()
     return render(request, 'books/create_book.html', {'form': form})

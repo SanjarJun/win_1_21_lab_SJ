@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>CreateReview</title>
+    <title>Create Review</title>
 </head>
 <body>
-<form action="/add-comment/"  method="POST" enctype="multipart/form-data">
-  {% csrf_token %}
-  {{form.as_p}}
-  <button type="submit">Send</button>
-  <button type="reset">Cancel</button>
-</form>
+    <form action="/add-comment/" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Send</button>
+        <button type="reset">Cancel</button>
+    </form>
 </body>
 </html>

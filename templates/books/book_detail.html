@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Details</title>
+    <style>
+        /* Add your CSS styles here */
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        img {
+            max-width: 100%;
+        }
+        p {
+            margin: 10px 0;
+        }
+        iframe {
+            width: 100%;
+            max-width: 800px;
+            height: 400px;
+        }
+        table {
+            width: 100%;
+            max-width: 800px;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .section-label {
+            font-weight: bold;
+        }
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 18px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <a class="back-button" href="javascript:history.back()">Back</a>
+    <h1>Detailed Information</h1>
+    <h2>{{ lang_key.title }}</h2>
+
+    <img src="{{ lang_key.image.url }}" alt="{{ lang_key.title }}">
+
+    <div class="section-label">Description:</div>
+    <p>{{ lang_key.description }}</p>
+
+    <div class="section-label">Actuality:</div>
+    <p>{{ lang_key.actuality }}</p>
+
+    <div class="section-label">Date of Creation:</div>
+    <p>{{ lang_key.created_at }}</p>
+
+    <iframe src="{{ lang_key.video }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>
+
+    <h2>Comments</h2>
+
+    <table>
+        <tr>
+            <th>Review create date</th>
+            <th>Comment</th>
+            <th>Grade</th>
+        </tr>
+        {% for i in lang_key.review_object.all %}
+        <tr>
+            <td>{{ i.created_at }}</td>
+            <td>{{ i.text_review }}</td>
+            <td>{{ i.rate_stars }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
