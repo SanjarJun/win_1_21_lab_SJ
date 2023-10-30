@@ -32,8 +32,8 @@
                         </div>
                     </li>
                 </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <form class="d-flex" role="search" action="{% url 'search' %}" method="GET">
+                    <input class="form-control me-2" type="text" name="q" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
             </div>
@@ -41,3 +41,8 @@
     </nav>
 </body>
 </html>
+n = int(input())
+a, b  = map(int, input())
+
+
+i love this keyboard, i can type fast and without many erros.

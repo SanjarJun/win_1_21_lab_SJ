@@ -3,7 +3,7 @@
 <main>
     <h1 class="title_main">Books & Games</h1>
     <section class="books">
-        {% for i in books %}
+        {% for i in object_list %}
         <div class="book">
             <div class="book_image">
                 <img src="{{ i.image.url }}" alt="{{ i.title }}">
