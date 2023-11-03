@@ -58,7 +58,7 @@ def book_delete_view (request):
     return render(request, 'books/book_list.html', {'lang_key': lang_value})
 
 class book_drop_view_2 (generic.DeleteView):
-    template_name = "confirm_delete.html"
+    template_name = "books/confirm_delete.html"
     success_url = "/"
     def get_object(self, **kwargs):
         book_id = self.kwargs.get("id")
@@ -70,7 +70,7 @@ class book_drop_view_2 (generic.DeleteView):
 #     return HttpResponse('Deleted')
 
 class update_book_class(generic.UpdateView):
-    template_name = "update_book.html"
+    template_name = "books/update_book.html"
     form_class = forms.BookForm
     success_url = "/"
 
@@ -79,10 +79,10 @@ class update_book_class(generic.UpdateView):
         return get_object_or_404(Book, id=boo)
 
     def form_valid(self, form):
-        return super(update_book_class,self).form_valid(form=form)
+        return super(update_book_class, self).form_valid(form=form)
 
 class SearchView(generic.ListView):
-    template_name='books'
+    template_name='books/books.html'
     context_object_name = "book"
     paginate_by = 4
 
