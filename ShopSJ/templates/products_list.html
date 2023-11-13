@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Orders</title>
+</head>
+<body>
+<form action="{% url 'product:tags_filter' %}" method="get">
+  <label for="tags">Tags:</label>
+  <select name="tag">
+      {% for tag in view.get_queryset_tag %}
+    <option name="tag" value="{{ tag.name }}">{{ tag.name }}</option>
+      {% endfor %}
+
+  </select>
+  <button type="submit">Filter</button>
+</form>
+<hr>
+<hr>
+<hr>
+<h1>Products</h1>
+{% for product in product_list %}
+    <p>{{ product.name }}</p>
+    <p>{{ product.cost }}</p>
+    <a href="{% url 'create_order' %}">Order</a>
+{% endfor %}
+
+</body>
+</html>
